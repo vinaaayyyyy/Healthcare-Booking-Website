@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #0F172A;
+  background: #ffffff;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(29, 78, 216, 0.15);
+  color: #0F172A;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ─── Focus visible ─── */
+*:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ─── Smooth transitions ─── */
+a, button {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* ─── Image base ─── */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Form elements ─── */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* ─── Custom utilities ─── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-blue to-primary-green bg-clip-text text-transparent;
+  }
+
+  .section-label {
+    @apply inline-block px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full border mb-4;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 border border-white/40 shadow-glass;
+  }
+
+  .premium-card {
+    @apply bg-white rounded-3xl border border-border-color shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply flex items-center gap-2 px-6 py-3 bg-primary-blue text-white font-bold rounded-btn shadow-md hover:shadow-glow-blue hover:scale-105 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply flex items-center gap-2 px-6 py-3 bg-white text-text-primary font-bold rounded-btn border-2 border-border-color hover:border-primary-blue/40 hover:bg-section-bg transition-all duration-200;
+  }
+
+  .btn-whatsapp {
+    @apply flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-btn shadow-md hover:scale-105 transition-all duration-200;
+  }
+}
